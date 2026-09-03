@@ -8,7 +8,7 @@ export default function ProjectsSection() {
           <span className="tag">PROYECTOS</span>
           <h2>Trabajo real, no maquetas.</h2>
           <p>
-            Esta sección está lista para tus primeros casos — cargá capturas, stack usado y un link a cada proyecto a medida que los sumes.
+            Estos son algunos de los proyectos y soluciones web que he realizado, desarrollados con enfoque en arquitectura limpia, rendimiento y buena experiencia de usuario.
           </p>
         </div>
         <div className="projects-grid reveal">

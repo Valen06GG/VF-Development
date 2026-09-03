@@ -1,15 +1,7 @@
 import { NextResponse } from 'next/server';
 
-// Si usás MongoDB/Mongoose:
-// import { connectDB } from '@/lib/db';
-// import { Project } from '@/models/Project';
-
 export async function GET() {
   try {
-    // await connectDB();
-    // const projects = await Project.find().sort({ createdAt: -1 });
-
-    // Ejemplo de respuesta mientras conectás la base de datos:
     const projects = [
       {
         id: '1',
@@ -42,9 +34,6 @@ export async function POST(request: Request) {
         { status: 400 }
       );
     }
-
-    // await connectDB();
-    // const newProject = await Project.create({ title, description, imageUrl, tags, liveUrl, githubUrl });
 
     return NextResponse.json({ success: true, project: body }, { status: 201 });
   } catch (error) {
