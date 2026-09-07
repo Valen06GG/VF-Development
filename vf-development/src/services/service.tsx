@@ -1,35 +1,74 @@
-import Reveal from "../components/reveal/reveal";
+const API = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
 
-const services = [
-  { icon: "🌐", title: "Desarrollo Web", desc: "Sitios modernos, rápidos y adaptados a cualquier dispositivo." },
-  { icon: "🛒", title: "E-commerce", desc: "Tiendas online diseñadas para vender y facilitar la compra." },
-  { icon: "⚛️", title: "Aplicaciones Web", desc: "Sistemas y plataformas a medida según cada necesidad." },
-  { icon: "🎨", title: "UI/UX", desc: "Interfaces intuitivas y pensadas para que se disfrute usarlas." },
-  { icon: "🔧", title: "Mantenimiento", desc: "Mejoras, actualizaciones, correcciones y soporte continuo." },
-  { icon: "📱", title: "Responsive", desc: "Experiencias optimizadas para PC, tablets y celulares." },
-];
+export async function getProjects() {
+  const response = await fetch(`${API}/projects`);
 
-export default function Services() {
-  return (
-    <section id="servicios">
-      <div className="wrap">
-        <Reveal className="section-head">
-          <span className="tag">SERVICIOS</span>
-          <h2>Soluciones digitales para ideas ambiciosas.</h2>
-          <p>Seis formas de ayudarte a construir presencia digital real, sin vueltas ni relleno.</p>
-        </Reveal>
-        <Reveal className="services-grid" >
-          <>
-            {services.map((s) => (
-              <div className="service-card" key={s.title}>
-                <span className="service-icon">{s.icon}</span>
-                <h3>{s.title}</h3>
-                <p>{s.desc}</p>
-              </div>
-            ))}
-          </>
-        </Reveal>
-      </div>
-    </section>
-  );
+  if (!response.ok) {
+    throw new Error('Error al obtener los proyectos');
+  }
+
+  return response.json();
+}
+
+export async function getProjectById(id: number | string) {
+  const response = await fetch(`${API}/projects/${id}`);
+
+  if (!response.ok) {
+    throw new Error('Proyecto no encontrado');
+  }
+
+  return response.json();
+}
+
+export async function createProject(data: any) {
+  const token = localStorage.getItem('token');
+  const response = await fetch(`${API}/projects`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: token ? `Bearer ${token}` : '',
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!response.ok) {
+    throw new Error('Error al crear el proyecto');
+  }
+
+  return response.json();
+}
+
+export async function updateProject(id: number | string, data: any) {
+  const token = localStorage.getItem('token');
+  const response = await fetch(`${API}/projects/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: token ? `Bearer ${token}` : '',
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!response.ok) {
+    throw new Error('Error al actualizar el proyecto');
+  }
+
+  return response.json();
+}
+
+export async function deleteProject(id: number | string) {
+  const token = localStorage.getItem('token');
+  const response = await fetch(`${API}/projects/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: token ? `Bearer ${token}` : '',
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error('Error al eliminar el proyecto');
+  }
+
+  return response.json();
 }

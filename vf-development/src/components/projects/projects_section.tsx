@@ -1,6 +1,15 @@
-import React from 'react';
+import { getProjects } from '@/src/services/service';
+import React, { useEffect, useState } from 'react';
 
 export default function ProjectsSection() {
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    getProjects()
+      .then((data) => setProjects(data))
+      .catch((err) => console.error(err));
+  }, []);
+
   return (
     <section id="proyectos">
       <div className="wrap">
