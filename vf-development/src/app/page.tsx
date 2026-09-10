@@ -2,7 +2,7 @@
 
 import Navbar from "../components/navbar/navbar";
 import Hero from "../components/hero/hero_section";
-import Services from "../services/service";
+import ServicesSection from "../components/services/services_section";
 import ProjectsSection from "../components/projects/projects_section";
 import ProcessSection from "../components/process/process_section";
 import AboutSection from "../components/about/about_section";
@@ -18,7 +18,7 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
-      <Services />
+      <ServicesSection />
       <ProjectsSection />
       <ProcessSection />
       <AboutSection />
