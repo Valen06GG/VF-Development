@@ -11,8 +11,8 @@ export default function ProjectsSection() {
       description: 'Catálogo web interactivo con filtro por categorías y buscador en tiempo real para la visualización de productos de decoración y esencias.',
       imageUrl: '/amorica.jpg',
       tags: ['Next.js', 'React', 'Tailwind CSS', 'NestJS'],
-      liveUrl: 'https://tu-demo-o-link.com',
-      githubUrl: 'https://github.com/tu-usuario/america-aromas',
+      liveUrl: 'amorica-aromas.vercel.app',
+      githubUrl: 'https://github.com/Valen06GG/Amorica-Aromas',
     },
     {
       id: 2,
@@ -20,8 +20,8 @@ export default function ProjectsSection() {
       description: 'Plataforma web para exploración de cartelera, cotización de entradas, reserva de tickets y gestión de usuarios.',
       imageUrl: '/kino.jpg',
       tags: ['Next.js', 'NestJS', 'TypeScript', 'Tailwind CSS', 'API REST'],
-      liveUrl: 'https://tu-demo-o-link.com',
-      githubUrl: 'https://github.com/tu-usuario/kino',
+      liveUrl: 'https://kino-henry-pf.vercel.app',
+      githubUrl: 'https://github.com/kino-henry-pf/kino-henry-pf',
     },
   ];
 
