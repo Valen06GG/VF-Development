@@ -11,7 +11,7 @@ export default function ProjectsSection() {
       description: 'Catálogo web interactivo con filtro por categorías y buscador en tiempo real para la visualización de productos de decoración y esencias.',
       imageUrl: '/amorica.jpg',
       tags: ['Next.js', 'React', 'Tailwind CSS', 'NestJS'],
-      liveUrl: 'amorica-aromas.vercel.app',
+      liveUrl: 'https://amorica-aromas.vercel.app',
       githubUrl: 'https://github.com/Valen06GG/Amorica-Aromas',
     },
     {
